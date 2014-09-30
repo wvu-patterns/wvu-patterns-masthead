@@ -1,0 +1,26 @@
+{
+  "name": "wvu-patterns-masthead",
+  "version": "0.0.1",
+  "authors": [
+    "Steven Spriggs <steven.spriggs@gmail.com>"
+  ],
+  "description": "WVU Pattern Library -- Masthead Module",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "wvu",
+    "west virginia university",
+    "css",
+    "scss"
+  ],
+  "main": [
+    "./_wvu-masthead.scss",
+    "./html/_wvu-masthead.html"
+  ]
+}
