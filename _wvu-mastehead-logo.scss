@@ -1,0 +1,20 @@
+// WVU Masthead Logo
+//==================================================
+
+// Variables
+$wvu-masthead-logo-png-url: '//static.wvu.edu/global/images/logo/wvu/masthead/wvu-logo__300x44--1.0.0.png' !default;
+$wvu-masthead-logo-svg-url: '//static.wvu.edu/global/images/logo/wvu/masthead/wvu-logo--1.0.0.svg' !default;
+
+// WVU Logo - The logo is a svg with a png fallback. 
+.wvu-masthead__logo { 
+  width: 100%; 
+  height: 35px;
+  float: left;  
+  margin-top: 10px;
+  background: url($wvu-masthead-logo-png-url) no-repeat center center;
+  background: url($wvu-masthead-logo-svg-url) no-repeat center center; 
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+}
