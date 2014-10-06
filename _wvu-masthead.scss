@@ -1,8 +1,10 @@
-$wvu-masthead-small-breakpoint: 'min-width: 38em' !default;
-$wvu-masthead-large-breakpoint: 'min-width: 87.5em' !default;
-
 // WVU Masthead
 //==================================================
+
+// Default Variables
+$wvu-masthead-large-breakpoint: 'min-width: 87.5em' !default;
+$wvu-masthead-background-png-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern_900x54--1.0.0.png' !default;
+$wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern--1.0.0.svg' !default;
 
 .wvu-masthead { 
   width: 100%; 
@@ -19,60 +21,9 @@ $wvu-masthead-large-breakpoint: 'min-width: 87.5em' !default;
   margin: 0 auto; 
   font-size: 11px; 
   overflow: hidden;
-  background: url(../images/wvu-pattern.png) no-repeat right;
-  background: url(../images/wvu-pattern.svg) no-repeat right;
-}
-
-// WVU Logo - The logo is a svg with a png fallback. 
-.wvu-masthead__logo { 
-  width: 100%; 
-  height: 35px;
-  float: left;  
-  margin-top: 10px;
-  background: url(../images/wvu-logo.png) no-repeat center center;
-  background: url(../images/wvu-logo.svg) no-repeat center center; 
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  text-indent: -9999px;
-}
-
-ul.wvu-masthead__links {
-  float: right; 
-  margin-top: 6px; 
-  padding: 0; 
-  li { 
-    display: inline; 
-    list-style-type: none;
-    a { 
-      float: left; 
-      color: #fff;
-      text-decoration: none; 
-      margin: 0 2px; 
-      padding: 6px 7px;
-    }
-  }
-  li:first-child a { 
-    margin-left: 0; 
-    padding-left: 0; 
-  }
-  li:last-child a { 
-    margin-right: 0; 
-    padding-right: 0; 
-  }
-  a:hover { 
-    text-decoration: underline; 
-  }
-}
-
-@media ($wvu-masthead-small-breakpoint) {
-  .wvu-masthead__logo {
-    width: 240px;
-  }
-}
-
-@media ($wvu-masthead-large-breakpoint) {
-  .wvu-masthead__container {
+  background: url($wvu-masthead-background-png-url) no-repeat right;
+  background: url($wvu-masthead-background-svg-url) no-repeat right;
+  @media ($wvu-masthead-large-breakpoint) {
     padding: 0;
   }
 }
