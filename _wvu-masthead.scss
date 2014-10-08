@@ -23,7 +23,7 @@ $wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wv
   overflow: hidden;
   background: url($wvu-masthead-background-png-url) no-repeat right;
   background: url($wvu-masthead-background-svg-url) no-repeat right;
-  @media ($wvu-masthead-large-breakpoint) {
+  @media (#{$wvu-masthead-large-breakpoint}) {
     padding: 0;
   }
 }
