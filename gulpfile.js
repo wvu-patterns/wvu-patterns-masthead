@@ -76,7 +76,6 @@ gulp.task('inject-src', ['scss-lint','copy-test-html','compile-css'], function (
         return file.contents.toString('utf8')
       }
     }))
-    .pipe(gulp.dest('./build/'))
   
     target.pipe(inject(gulp.src(['./bower_components/wvu-patterns-masthead-links/src/html/*.html']), {
       starttag: '<!-- inject:wvu-masthead-links:{{ext}} -->',
