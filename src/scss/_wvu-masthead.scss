@@ -6,23 +6,24 @@ $wvu-masthead-large-breakpoint: 'min-width: 87.5em' !default;
 $wvu-masthead-background-png-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern_900x54--1.0.0.png' !default;
 $wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern--1.0.0.svg' !default;
 
-.wvu-masthead { 
+.wvu-masthead {
+  background-color: #005daa; 
   width: 100%; 
-  background-color: #005daa;
 }
 
 // Adjust the max-width to fix your total site width. If you're using Sass you can take advantage of the $max-width variable. 
-.wvu-masthead__container { 
-  width: 100%;
-  max-width: 1400px;
-  padding-right: 18px;
-  padding-left: 18px;
-  height: 54px; 
-  margin: 0 auto; 
-  font-size: 11px; 
-  overflow: hidden;
+.wvu-masthead__container {
   background: url($wvu-masthead-background-png-url) no-repeat right;
   background: url($wvu-masthead-background-svg-url) no-repeat right;
+  font-size: 11px; 
+  height: 54px; 
+  margin: 0 auto;
+  max-width: 1400px;
+  overflow: hidden;
+  padding-left: 18px;
+  padding-right: 18px;
+  width: 100%;
+  
   @media (#{$wvu-masthead-large-breakpoint}) {
     padding: 0;
   }
