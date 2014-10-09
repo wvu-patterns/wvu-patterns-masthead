@@ -70,7 +70,7 @@ gulp.task('inject-src', ['scss-lint','copy-test-html','compile-css'], function (
     }))
 
     target.pipe(inject(gulp.src(['./bower_components/wvu-patterns-masthead-logo/src/html/*.html']), {
-      starttag: '<!-- inject:logo:{{ext}} -->',
+      starttag: '<!-- inject:wvu-masthead-logo:{{ext}} -->',
       transform: function (filePath, file) {
         // return file contents as string
         return file.contents.toString('utf8')
@@ -79,7 +79,7 @@ gulp.task('inject-src', ['scss-lint','copy-test-html','compile-css'], function (
     .pipe(gulp.dest('./build/'))
   
     target.pipe(inject(gulp.src(['./bower_components/wvu-patterns-masthead-links/src/html/*.html']), {
-      starttag: '<!-- inject:links:{{ext}} -->',
+      starttag: '<!-- inject:wvu-masthead-links:{{ext}} -->',
       transform: function (filePath, file) {
         // return file contents as string
         return file.contents.toString('utf8')
