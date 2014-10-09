@@ -27,7 +27,7 @@ Requires:
 
 ####Installation
 
-* `cd {install-dir}/wvu-patterns-footer-links`
+* `cd {install-dir}/wvu-patterns-masthead`
 * `gem install bundler`
 * `bundle install`
 * `npm install`
