@@ -1,6 +1,6 @@
 {
   "name": "wvu-patterns-masthead",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "authors": [
     "Steven Spriggs <steven.spriggs@gmail.com>"
   ],
@@ -24,6 +24,7 @@
     "./html/_wvu-masthead.html"
   ],
   "dependencies": {
+    "inuit-clearfix": "0.2.1",
     "wvu-patterns-masthead-logo": "latest",
     "wvu-patterns-masthead-links": "latest"
   }

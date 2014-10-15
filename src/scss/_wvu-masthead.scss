@@ -1,12 +1,15 @@
 // WVU Masthead
 //==================================================
-
 // Default Variables
 $wvu-masthead-large-breakpoint: 'min-width: 87.5em' !default;
 $wvu-masthead-background-png-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern_900x54--1.0.0.png' !default;
 $wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern--1.0.0.svg' !default;
 
+// Dependencies
+@import './bower_components/inuit-clearfix/_trumps.clearfix';
+
 .wvu-masthead {
+  @extend %clearfix;
   background-color: #005daa; 
   width: 100%; 
 }
