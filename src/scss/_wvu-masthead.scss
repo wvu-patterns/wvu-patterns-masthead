@@ -9,13 +9,13 @@ $wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wv
 @import './bower_components/inuit-clearfix/_trumps.clearfix';
 
 .wvu-masthead {
-  @extend %clearfix;
   background-color: #005daa; 
   width: 100%; 
 }
 
 // Adjust the max-width to fix your total site width. If you're using Sass you can take advantage of the $max-width variable. 
 .wvu-masthead__container {
+  @extend %clearfix;
   background: url($wvu-masthead-background-png-url) no-repeat right;
   background: url($wvu-masthead-background-svg-url) no-repeat right;
   font-size: 11px; 
