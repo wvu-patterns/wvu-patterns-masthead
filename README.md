@@ -8,6 +8,12 @@ Use [Bower](http://bower.io/) to install this module.
 $ bower install --save wvu-patterns-masthead
 ```
 
+## Dependencies
+
+[wvu-patterns-masthead-credits](https://github.com/wvu-patterns/wvu-patterns-masthead-logo)
+
+[wvu-patterns-masthead-links](https://github.com/wvu-patterns/wvu-patterns-masthead-links)
+
 ### Overrideable defaults
 
 ```scss
