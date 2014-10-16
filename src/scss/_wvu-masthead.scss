@@ -1,19 +1,31 @@
 // WVU Masthead
 //==================================================
 // Default Variables
-$wvu-masthead-large-breakpoint: 'min-width: 87.5em' !default;
 $wvu-masthead-background-png-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern_900x54--1.0.0.png' !default;
 $wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern--1.0.0.svg' !default;
+$wvu-masthead-container-max-width: 1400px !default;
+$wvu-masthead-container-fluid: false !default;
 
 // Dependencies
 @import './bower_components/inuit-clearfix/_trumps.clearfix';
+
+// Mixins
+@mixin is-fluid() {
+  // Check the guaranteed-existing variable. If it didn't exist 
+  // before calling this mixin/function/whatever, this will 
+  // return false.
+  @if $wvu-masthead-container-fluid {
+    max-width: 'auto';
+  } @else {
+    max-width: $wvu-masthead-container-max-width;
+  }
+}
 
 .wvu-masthead {
   background-color: #005daa; 
   width: 100%; 
 }
 
-// Adjust the max-width to fix your total site width. If you're using Sass you can take advantage of the $max-width variable. 
 .wvu-masthead__container {
   @extend %clearfix;
   background: url($wvu-masthead-background-png-url) no-repeat right;
@@ -21,13 +33,9 @@ $wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wv
   font-size: 11px; 
   height: 54px; 
   margin: 0 auto;
-  max-width: 1400px;
   overflow: hidden;
   padding-left: 18px;
   padding-right: 18px;
   width: 100%;
-  
-  @media (#{$wvu-masthead-large-breakpoint}) {
-    padding: 0;
-  }
+  @include is-fluid();
 }
