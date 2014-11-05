@@ -20,8 +20,10 @@
     "scss"
   ],
   "main": [
-    "./_wvu-masthead.scss",
-    "./html/_wvu-masthead.html"
+    "./src/scss/_wvu-masthead.scss",
+    "./src/html/_wvu-masthead.html",
+    "./src/cleanslate_views/_wvu-masthead.html",
+    ".src/test/index.html"
   ],
   "dependencies": {
     "inuit-clearfix": "0.2.1",
