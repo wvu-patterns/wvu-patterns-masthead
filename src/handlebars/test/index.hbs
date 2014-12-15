@@ -3,6 +3,13 @@
   <head>
     <title>WVU Pattern Library - Masthead Module</title>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
+
+    <style>
+      /* Test ONLY Styles */
+      * {  box-sizing: border-box; }
+      html, body { padding: 0; margin: 0; }
+    </style>
+
     {{#_wvu-masthead.css}}
     <link href="{{src}}" rel="stylesheet" />
     {{/_wvu-masthead.css}}
@@ -16,6 +23,6 @@
     {{/_wvu-masthead__links.css}}
   </head>
   <body>
-    {{> handlebars/_wvu-masthead}}
+    {{> partials/_wvu-masthead}}
   </body>
 </html>
