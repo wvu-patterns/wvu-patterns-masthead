@@ -1,26 +1,26 @@
 {
   "name": "wvu-patterns-masthead",
+  "homepage": "https://github.com/wvu-patterns/wvu-patterns-masthead",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wvu-patterns/wvu-patterns-masthead.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wvu-patterns/wvu-patterns-masthead/issues"
+  },
+  "author": "Steven Spriggs <steven.spriggs@mail.wvu.edu>",
+  "keywords": [
+    "wvu",
+    "west virginia university",
+    "patterns"
+  ],
   "description": "WVU Pattern Library - Masthead Module",
+  "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
     "test": "gulp ci"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://zeroedin@github.com/wvu-patterns/wvu-patterns-masthead.git"
-  },
-  "keywords": [
-    "wvu",
-    "scss",
-    "west virginia university"
-  ],
-  "author": "Steven Spriggs <steven.spriggs@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wvu-patterns/wvu-patterns-masthead/issues"
-  },
-  "homepage": "https://github.com/wvu-patterns/wvu-patterns-masthead",
   "devDependencies": {
     "browser-sync": "^1.7.3",
     "del": "^0.1.3",

@@ -2,28 +2,29 @@
   "name": "wvu-patterns-masthead",
   "version": "0.1.0",
   "authors": [
-    "Steven Spriggs <steven.spriggs@gmail.com>"
-  ],
-  "description": "WVU Pattern Library -- Masthead Module",
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "Steven Spriggs <steven.spriggs@mail.wvu.edu>",
+    "Dustin Mazon <dustin.mazon@mail.wvu.edu>"
   ],
   "keywords": [
     "wvu",
     "west virginia university",
-    "css",
-    "scss"
+    "patterns"
   ],
+  "description": "WVU Pattern Library -- Masthead Module",
+  "license": "MIT",
   "main": [
-    "./src/scss/_wvu-masthead.scss",
-    "./src/html/_wvu-masthead.html",
-    "./src/cleanslate_views/_wvu-masthead.html",
-    ".src/test/index.html"
+    "src/cleanslate/_wvu-masthead.html",
+    "src/handlebars/data/_wvu-masthead.json",
+    "src/handlebars/partials/_wvu-masthead.hbs",
+    "src/scss/_wvu-masthead.scss"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "build",
+    "test",
+    "tests"
   ],
   "dependencies": {
     "inuit-clearfix": "0.2.1",
