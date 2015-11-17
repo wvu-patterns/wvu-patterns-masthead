@@ -1,0 +1,11 @@
+/*
+  Blue Pattern Masthead
+*/
+@mixin wvu-masthead-blue-pattern() {
+  .wvu-masthead {
+    background: url($wvu-pattern-blue-bg) no-repeat;
+    background-size: cover;
+    background-color: $wvu-blue;
+    -webkit-font-smoothing: antialiased;
+  }
+}

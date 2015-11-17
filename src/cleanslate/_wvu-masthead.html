@@ -1,9 +1,15 @@
-<div class="wvu-masthead">
+<div class="wvu-masthead <r:if var1="$wvu_config_mini" var2="true" operator="=">wvu-masthead--mini </r:if><r:var name="wvu-masthead__classes" />">
   <div class="wvu-masthead__container">
 
-    <r:partial name="wvu-masthead__logo" />
+    <r:partial name="patterns/wvu-masthead__logo" />
 
-    <r:partial name="wvu-masthead__links" />
+    <r:if var1="$wvu_config_masthead_department" var2="true" operator="=">
+      <r:partial name="patterns/wvu-masthead__college-link" />
+    </r:if>
 
-  </div>
-</div>
+    <r:if var1="$wvu_config_masthead_search" var2="true" operator="=">
+      <r:partial name="patterns/wvu-masthead__search-bar" />
+    </r:if>
+
+  </div> <!-- /.wvu-masthead-container -->
+</div> <!-- /.wvu-masthead -->

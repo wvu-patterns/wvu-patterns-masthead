@@ -1,0 +1,44 @@
+/*
+  Gold Masthead
+*/
+@mixin wvu-masthead-gold() {
+  .wvu-masthead {
+    background-color: $wvu-gold;
+    background-image: none;
+    color: $wvu-blue;
+  }
+
+  .wvu-masthead__logo {
+    background: url($flying-wv-blue:) no-repeat top 1.2em left;
+    background-size: 1.8em;
+    color: $wvu-blue;
+    &:hover {
+      color: $pms-300-c;
+    }
+    &:visited {
+      color: $wvu-blue;
+    }
+  }
+
+  .wvu-masthead__link {
+    color: $wvu-blue;
+     &:hover {
+       color: $wvu-base-link-color;
+     }
+  }
+
+  .wvu-masthead__college-link {
+    background: $wvu-blue;
+    color: $wvu-white;
+    &:hover {
+      color: $wvu-white;
+    }
+    &:visited {
+      color: $wvu-white;
+    }
+    a {
+      background: $wvu-blue;
+      color: $wvu-white;
+    }
+  }
+}

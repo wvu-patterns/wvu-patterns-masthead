@@ -10,29 +10,67 @@ $ bower install --save wvu-patterns-masthead
 
 ## Dependencies
 
-[wvu-patterns-masthead-logo](https://github.com/wvu-patterns/wvu-patterns-masthead-logo)
-
-[wvu-patterns-masthead-links](https://github.com/wvu-patterns/wvu-patterns-masthead-links)
-
-### Overrideable defaults
-
-```scss
-$wvu-masthead-large-breakpoint: 'min-width: 87.5em' !default;
-$wvu-masthead-background-png-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern_900x54--1.0.0.png' !default;
-$wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern--1.0.0.svg' !default;
-$wvu-masthead-container-fluid: false !default;
-$wvu-masthead-container-max-width: 1400 !default;
+```
+"inuit-clearfix": "0.2.2",
+"wvu-patterns-search": "1.0.0",
+"wvu-variables-colors": "1.0.0",
+"wvu-utilities-colors": "1.0.0",
+"wvu-utilities-mediaqueries": "1.0.0",
+"wvu-utilities-box-sizing": "0.0.2",
+"wvu-typography": "1.0.0"
 ```
 
-Setting `$wvu-masthead-container-fluid` to `true` will remove the value of `max-width` of the container to `auto`
+### SCSS Overrideable defaults
+
+```scss
+/*
+  Variable options for WVU Masthead Background:
+  gold | blue | white | blue-pattern | gold-pattern
+  default: blue
+*/
+$wvu-masthead-background: 'blue' !default;
+
+/*
+  Variable options for WVU Masthead Signature:
+  boolean: true | false
+  default: true
+*/
+$wvu-masthead-has-signature: true !default;
+
+/*
+  Variable options for WVU Masthead Two Line Title:
+  boolean: true | false
+  default false
+*/
+$wvu-masthead-two-line-lockup: false !default;
+
+/*
+  Flying WVU Logo
+*/
+$flying-wv-blue: 'https://patterns.wvu.edu/images/flying-wv-blue.png' !default;
+
+/*
+  Flying WV Logos with Signatures
+*/
+$flying-wv-w-signature: 'https://patterns.wvu.edu/images/flying-wv-w-signature.png' !default;
+$flying-wv-w-signature-gold-bg: 'https://patterns.wvu.edu/images/flying-wv-w-signature-gold-bg.png' !default;
+$flying-wv-w-signature-white-bg: 'https://patterns.wvu.edu/images/flying-wv-w-signature-white-bg.png' !default;
+
+/*
+  Brand Pattern Backgrounds
+*/
+$wvu-pattern-blue-bg: 'https://patterns.wvu.edu/images/pattern-blue.jpg' !default;
+$wvu-pattern-gold-bg: 'https://patterns.wvu.edu/images/pattern-gold.jpg' !default;
+
+```
 
 ###Pattern Development
 
 Requires:
 
-* Ruby 1.9.3-p484
-* NodeJS
-* Gulp
+* Ruby ~= 2.2.3
+* NodeJS >= 4.1.2
+* Gulp >= 3.8.11
 
 *RVM is Preferred* but not required
 

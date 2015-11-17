@@ -1,0 +1,12 @@
+- if App.wvu_config.masthead_mini
+  - klass = "wvu-masthead--mini "
+
+%div.wvu-masthead{class: "#{App.wvu_config.masthead_classes}#{klass}" }
+  %div.wvu-masthead__container
+    = render partial: 'wvu_masthead__logo'
+
+    - if App.wvu_config.masthead_department
+      = render partial: 'wvu_masthead__college_link'
+
+    - if App.wvu_config.masthead_search
+      = render partial: 'wvu_masthead__search_bar'

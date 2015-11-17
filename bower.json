@@ -1,13 +1,14 @@
 {
   "name": "wvu-patterns-masthead",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "authors": [
     "Steven Spriggs <steven.spriggs@mail.wvu.edu>",
+    "Adam Glenn <adam.glenn@mail.wvu.edu>",
+    "Adam Johnson <adam.johnson@mail.wvu.edu>",
     "Dustin Mazon <dustin.mazon@mail.wvu.edu>"
   ],
   "keywords": [
     "wvu",
-    "west virginia university",
     "patterns"
   ],
   "description": "WVU Pattern Library -- Masthead Module",
@@ -27,8 +28,12 @@
     "tests"
   ],
   "dependencies": {
-    "inuit-clearfix": "0.2.1",
-    "wvu-patterns-masthead-logo": "latest",
-    "wvu-patterns-masthead-links": "latest"
+    "inuit-clearfix": "0.2.2",
+    "wvu-patterns-search": "1.0.0",
+    "wvu-variables-colors": "1.0.0",
+    "wvu-utilities-colors": "1.0.0",
+    "wvu-utilities-mediaqueries": "1.0.0",
+    "wvu-utilities-box-sizing": "0.0.2",
+    "wvu-typography": "1.0.0"
   }
 }

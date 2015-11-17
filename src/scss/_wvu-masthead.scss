@@ -1,41 +1,220 @@
-// WVU Masthead
-//==================================================
-// Default Variables
-$wvu-masthead-background-png-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern_900x54--1.0.0.png' !default;
-$wvu-masthead-background-svg-url: '//static.wvu.edu/global/images/backgrounds/wvu/masthead/wvu-pattern--1.0.0.svg' !default;
-$wvu-masthead-container-max-width: 1400px !default;
-$wvu-masthead-container-fluid: false !default;
 
-// Dependencies
-@import './bower_components/inuit-clearfix/_trumps.clearfix';
+/*
+  Variable options for WVU Masthead Background:
+  gold | blue | white | blue-pattern | gold-pattern
+  default: blue
+*/
+$wvu-masthead-background: 'blue' !default;
 
-// Mixins
-@mixin is-fluid() {
-  // Check the guaranteed-existing variable. If it didn't exist 
-  // before calling this mixin/function/whatever, this will 
-  // return false.
-  @if $wvu-masthead-container-fluid {
-    max-width: 'auto';
-  } @else {
-    max-width: $wvu-masthead-container-max-width;
+/*
+  Variable options for WVU Masthead Signature:
+  boolean: true | false
+  default: true
+*/
+$wvu-masthead-has-signature: true !default;
+
+/*
+  Variable options for WVU Masthead Two Line Title:
+  boolean: true | false
+  default false
+*/
+$wvu-masthead-two-line-lockup: false !default;
+
+/*
+  Flying WVU Logo
+*/
+$flying-wv-blue: 'https://patterns.wvu.edu/images/flying-wv-blue.png' !default;
+
+/*
+  Flying WV Logos with Signatures
+*/
+$flying-wv-w-signature: 'https://patterns.wvu.edu/images/flying-wv-w-signature.png' !default;
+$flying-wv-w-signature-gold-bg: 'https://patterns.wvu.edu/images/flying-wv-w-signature-gold-bg.png' !default;
+$flying-wv-w-signature-white-bg: 'https://patterns.wvu.edu/images/flying-wv-w-signature-white-bg.png' !default;
+
+/*
+  Brand Pattern Backgrounds
+*/
+$wvu-pattern-blue-bg: 'https://patterns.wvu.edu/images/pattern-blue.jpg' !default;
+$wvu-pattern-gold-bg: 'https://patterns.wvu.edu/images/pattern-gold.jpg' !default;
+
+
+/*
+  WVU Masthead Mixin Two Line Lockup for Long Titles
+*/
+@mixin wvu-masthead-is-two-line-lockup() {
+  @if $wvu-masthead-two-line-lockup == true {
+    .wvu-masthead__title { font-size: 0.6em; line-height: 1.08333333em; float: left; margin-top: 0.1em;
+      @include mq($wvu-bp-medium) {
+        font-size: 0.75em;
+      }
+    }
+    .wvu-masthead__university-name { top: 7.1em;
+      @include mq($wvu-bp-medium) {
+        top: 7.1em;
+      }
+    }
   }
 }
 
-.wvu-masthead {
-  background-color: #005daa; 
-  width: 100%; 
+/*
+  Logic Switch for Masthead colors
+*/
+@mixin wvu-masthead-background(){
+  @if $wvu-masthead-background == 'gold' {
+    @include 'wvu-masthead-gold';
+    @include wvu-masthead-gold():
+  } @else if $wvu-masthead-background == 'white' {
+    @include 'wvu-masthead-white';
+    @include wvu-masthead-white();
+  } @else if $wvu-masthead-background == 'blue-pattern' {
+    @include 'wvu-masthead-blue-pattern';
+    @include wvu-masthead-blue-pattern();
+  } @else if $wvu-masthead-background == 'gold-pattern' {
+    @include 'wvu-masthead-gold-pattern';
+    @include wvu-masthead-gold-pattern();
+  } @else {
+    @include 'wvu-masthead-blue';
+    @include wvu-masthead-blue();
+  }
 }
 
-.wvu-masthead__container {
-  @extend %clearfix;
-  background: url($wvu-masthead-background-png-url) no-repeat right;
-  background: url($wvu-masthead-background-svg-url) no-repeat right;
-  font-size: 11px; 
-  height: 54px; 
-  margin: 0 auto;
+.wvu-masthead__container { padding: 0 1em;
+  @include mq($wvu-bp-xlarge) { padding: 0; }
+}
+
+.wvu-masthead {
+  fieldset {
+    background: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.wvu-masthead__logo {
+  background: url(../images/flying-wv.png) no-repeat top 1.2em left;
+  background-color: transparent;
+  background-size: 1.8em;
+  border: 0;
+  color: $wvu-white;
+  float: left;
+  font-size: 1.2em;
   overflow: hidden;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding: 1em 0 1.6em 2em;
+  position: relative;
+  text-decoration: none;
   width: 100%;
-  @include is-fluid();
+  &:hover {
+    color: #ddd;
+    text-decoration: none;
+  }
+  @include mq($wvu-bp-micro) {
+    font-size: 1.5em;
+  }
+  @include mq($wvu-bp-medium) {
+    font-size: 1.75em;
+  }
+  @include mq($wvu-bp-large) {
+    font-size: 2em;
+  }
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 0;
+  }
+}
+
+.wvu-masthead__title {
+  font-size: 0.85em;
+  @include mq($wvu-bp-micro) {
+    font-size: inherit;
+  }
+}
+
+.wvu-masthead__link {
+  color: $wvu-white;
+  display: inline-block;
+  font-weight: bold;
+  float: left;
+  margin-bottom: .5em;
+  margin-right: .5em;
+  @include mq($wvu-bp-medium) {
+    margin-bottom: 3px;
+  }
+  &:hover { color:
+    $wvu-white;
+    text-decoration: underline;
+  }
+}
+
+.wvu-masthead__college {
+  position: absolute;
+  top: 1em; font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.wvu-masthead__college-link {
+  position: relative;
+}
+
+.wvu-masthead__college-link a {
+  font-size: 0.8em;
+  line-height: 1.08333333em;
+  margin-bottom: -2em;
+  padding: 0.4em 0.5em;
+  @include mq($wvu-bp-medium) {
+    position: absolute;
+  }
+}
+
+//  Move this to search bar pattern
+//
+// .form-search__field {
+//   color: $wvu-black;
+// }
+//
+// .wvu-masthead__search-bar {
+//   font-size: 0.8em;
+//   padding-bottom: 4em;
+//   padding-top: 2.1em;
+//
+//   @include mq($wvu-bp-medium) {
+//     padding-bottom: 0;
+//   }
+//   input[type="checkbox"],
+//   input[type="radio"] {
+//     margin-right: 0;
+//   }
+// }
+//
+// .form-search__label {
+//   width: 82.94039%;
+//   margin-right: 2.35765%;
+//   float: left;
+// }
+//
+// input[type="submit"] {
+//   &.form-search__submit {
+//     width: 14.70196%;
+//     margin-right: 0;
+//     float: left;
+//   }
+// }
+
+
+@include wvu-masthead-is-two-line-lockup();
+@include wvu-masthead-background();
+@include wvu-masthead-has-signature();
+
+.wvu-masthead__logo--mini {
+  background-size: 250px;
+  background-position: top 0.6em left;
+  padding-bottom: 1.6em;
+  @include mq($wvu-bp-medium) {
+    background-position: top 0.5em left;
+    padding-bottom: 1em;
+    font-size: 2em;
+  }
 }

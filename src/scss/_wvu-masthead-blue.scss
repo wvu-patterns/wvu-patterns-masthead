@@ -1,0 +1,17 @@
+/*
+  Blue Masthead
+*/
+@mixin wvu-masthead-blue() {
+  .wvu-masthead {
+    background-color: $wvu-blue;
+    color: $wvu-white;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wvu-masthead__logo {
+    color: $wvu-white;
+    &:visited {
+      color: $wvu-white;
+    }
+  }
+}

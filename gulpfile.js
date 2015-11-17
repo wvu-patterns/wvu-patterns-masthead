@@ -74,7 +74,7 @@ gulp.task('compile', ['build-json','scss-lint','compile-scss'], function () {
       './src/handlebars/partials'
     ]
   }
-  return gulp.src('./src/handlebars/test/index.hbs')
+  return gulp.src('./test/index.hbs')
         .pipe(handlebars(templateData, options))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('./build'));

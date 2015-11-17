@@ -1,0 +1,11 @@
+- if App.wvu_config.masthead_mini
+  - klass = "wvu-masthead__logo--mini "
+
+%a.wvu-masthead__logo{href: "/", class="#{klass}" }
+  %span.wvu-masthead__university-name
+    West Virginia University
+    - if App.wvu_config.tech
+      Institue of Technology
+  - if App.wvu_config.masthead_mini
+    %span.wvu-masthead__title
+      = app.wvu_masthead__title
