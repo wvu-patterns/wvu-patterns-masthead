@@ -1,6 +1,6 @@
-/*
-  Gold Masthead
-*/
+// Gold Masthead
+//==================================================
+
 @mixin wvu-masthead-gold() {
   .wvu-masthead {
     background-color: $wvu-gold;
@@ -9,7 +9,7 @@
   }
 
   .wvu-masthead__logo {
-    background: url($flying-wv-blue:) no-repeat top 1.2em left;
+    background: url($flying-wv-blue) no-repeat top 1.2em left;
     background-size: 1.8em;
     color: $wvu-blue;
     &:hover {

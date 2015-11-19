@@ -1,0 +1,20 @@
+//  Variable options for WVU Masthead Background:
+//  gold | blue | white | blue-pattern | gold-pattern
+//  default: blue
+//==================================================
+
+$wvu-masthead-background: 'blue' !default;
+
+/*
+  Variable options for WVU Masthead Signature:
+  boolean: true | false
+  default: true
+*/
+$wvu-masthead-has-signature: true !default;
+
+/*
+  Variable options for WVU Masthead Two Line Title:
+  boolean: true | false
+  default false
+*/
+$wvu-masthead-two-line-lockup: false !default;

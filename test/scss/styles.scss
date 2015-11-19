@@ -1,0 +1,21 @@
+// Dependencies
+// =================================================
+
+// Bourbon & Neat
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../bower_components/neat/app/assets/stylesheets/neat";
+
+// wvu-utilities-variables
+@import "../bower_components/wvu-utilities-variables/src/wvu-variables-base";
+@import "../bower_components/wvu-utilities-variables/src/wvu-variables-color";
+@import "../bower_components/wvu-utilities-variables/src/wvu-variables-images";
+@import "../bower_components/wvu-utilities-variables/src/wvu-variables-mediaquery";
+@import "../bower_components/wvu-utilities-variables/src/wvu-variables-overrides";
+
+// wvu-patterns-search
+
+
+// Pattern
+// =================================================
+
+@import "../src/scss/_wvu-masthead.scss";

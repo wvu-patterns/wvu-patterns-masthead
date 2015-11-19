@@ -1,8 +1,5 @@
 {
   "_wvu-masthead": {
-    "css": [
-      {"src":"css/wvu-masthead.css"}
-    ],
     "wvu-masthead__title": "",
     "include-wvu-search": true
   }

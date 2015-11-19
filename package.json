@@ -28,7 +28,7 @@
     "wvu",
     "patterns"
   ],
-  "description": "WVU Pattern Library - Masthead Module",
+  "description": "WVU Pattern Library -- Masthead Module",
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {

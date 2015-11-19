@@ -11,13 +11,9 @@ $ bower install --save wvu-patterns-masthead
 ## Dependencies
 
 ```
-"inuit-clearfix": "0.2.2",
 "wvu-patterns-search": "1.0.0",
-"wvu-variables-colors": "1.0.0",
-"wvu-utilities-colors": "1.0.0",
-"wvu-utilities-mediaqueries": "1.0.0",
-"wvu-utilities-box-sizing": "0.0.2",
-"wvu-typography": "1.0.0"
+"wvu-utilities-variables": "1.0.0",
+"neat" : "1.7.2"
 ```
 
 ### SCSS Overrideable defaults
