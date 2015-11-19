@@ -67,8 +67,7 @@ gulp.task('compile', ['build-json','scss-lint','compile-scss'], function () {
 
   var options = {
     batch : [
-      './bower_components/wvu-patterns-masthead-logo/src/handlebars/partials',
-      './bower_components/wvu-patterns-masthead-links/src/handlebars/partials',
+      './bower_components/wvu-patterns-search/src/handlebars/partials',
       './src/handlebars/partials'
     ]
   }
@@ -79,7 +78,7 @@ gulp.task('compile', ['build-json','scss-lint','compile-scss'], function () {
 });
 
 gulp.task('build',function(cb){
-  runSequence('clean','move-dependecies','compile',cb);
+  runSequence('clean','compile',cb);
 });
 
 gulp.task('test',['build','browser-sync']);
