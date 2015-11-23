@@ -1,0 +1,15 @@
+{
+  "wvu_config": {
+    "wvu_tech": false,
+    "wvu_masthead": {
+      "title": "",
+      "mini": false,
+      "classes": "",
+      "search": true,
+      "link": "http://www.wvu.edu",
+      "department": false,
+      "college_name": "",
+      "college_url": ""
+    }
+  }
+}
