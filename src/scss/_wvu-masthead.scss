@@ -143,40 +143,19 @@
   }
 }
 
+.wvu-masthead__search-bar {
+  font-size: 0.8em;
+  padding-bottom: 4em;
+  padding-top: 2.1em;
 
-//  TODO: Move this to search bar pattern
-//
-// .form-search__field {
-//   color: $wvu-black;
-// }
-//
-// .wvu-masthead__search-bar {
-//   font-size: 0.8em;
-//   padding-bottom: 4em;
-//   padding-top: 2.1em;
-//
-//   @include media($wvu-bp-medium) {
-//     padding-bottom: 0;
-//   }
-//   input[type="checkbox"],
-//   input[type="radio"] {
-//     margin-right: 0;
-//   }
-// }
-//
-// .form-search__label {
-//   width: 82.94039%;
-//   margin-right: 2.35765%;
-//   float: left;
-// }
-//
-// input[type="submit"] {
-//   &.form-search__submit {
-//     width: 14.70196%;
-//     margin-right: 0;
-//     float: left;
-//   }
-// }
+  @include media($wvu-bp-medium) {
+    padding-bottom: 0;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 0;
+  }
+}
 
 
 @include wvu-masthead-is-two-line-lockup();
