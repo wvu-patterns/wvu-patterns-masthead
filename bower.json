@@ -31,5 +31,8 @@
     "wvu-patterns-search": "1.0.0",
     "wvu-utilities-variables": "1.0.0",
     "neat" : "1.7.2"
+  },
+  "devDependencies": {
+    "wvu-utilities-typography": "1.0.0"
   }
 }
