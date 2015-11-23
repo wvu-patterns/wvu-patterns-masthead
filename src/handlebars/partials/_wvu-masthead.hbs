@@ -1,15 +1,15 @@
-<div class="wvu-masthead {{#wvu_config.masthead_mini}}wvu-masthead--mini {{/wvu_config.masthead_mini}}{{wvu_config.masthead_classes}}">
+<div class="wvu-masthead {{#wvu_config.wvu_masthead.mini}}wvu-masthead--mini {{/wvu_config.wvu_masthead.mini}}{{wvu_config.wvu_masthead.classes}}">
   <div class="wvu-masthead__container">
 
     {{> _wvu-masthead__logo }}
 
-    {{#wvu_config.department_link}}
-      {{> _wvu-masthead__department--link}}
-    {{/wvu_config.department_link}}
+    {{#wvu_config.wvu_masthead.department}}
+      {{> _wvu-masthead__college--link}}
+    {{/wvu_config.wvu_masthead_department}}
 
-    {{#wvu_confi._masthead_search}}
+    {{#wvu_config.wvu_masthead.search}}
       {{> _wvu-masthead__search-bar }}
-    {{/wvu_config.masthead_search}}
+    {{/wvu_config.wvu_masthead.search}}
 
   </div> <!-- /.wvu-masthead__container -->
 </div> <!-- /.wvu-masthead -->
