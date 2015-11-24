@@ -65,8 +65,13 @@
 // Masthead Styles
 //==================================================
 
-.wvu-masthead__container { padding: 0 1em;
-  @include media($wvu-bp-xlarge) { padding: 0; }
+.wvu-masthead__container {
+  @include outer-container();
+  padding: 0 1em;
+
+  @include media($wvu-bp-xlarge) {
+    padding: 0;
+  }
 }
 
 .wvu-masthead {
@@ -91,19 +96,26 @@
   position: relative;
   text-decoration: none;
   width: 100%;
+
   &:hover {
     color: #ddd;
     text-decoration: none;
   }
+
   @include media($wvu-bp-micro) {
     font-size: 1.5em;
   }
+
   @include media($wvu-bp-medium) {
+    @include span-columns(7.5);
     font-size: 1.75em;
   }
+
   @include media($wvu-bp-large) {
+    @include span-columns(8.5);
     font-size: 2em;
   }
+
   &:before {
     content: "";
     display: block;
@@ -160,12 +172,18 @@
   padding-bottom: 4em;
   padding-top: 2.1em;
 
-  @include media($wvu-bp-medium) {
-    padding-bottom: 0;
-  }
   input[type="checkbox"],
   input[type="radio"] {
     margin-right: 0;
+  }
+
+  @include media($wvu-bp-medium) {
+    @include span-columns(4.5);
+    padding-bottom: 0;
+  }
+
+  @include media($wvu-bp-large) {
+    @include span-columns(3.5);
   }
 }
 
