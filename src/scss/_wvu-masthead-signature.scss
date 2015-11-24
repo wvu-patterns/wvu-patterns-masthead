@@ -1,0 +1,49 @@
+@mixin wvu-masthead-signature-background(){
+  .wvu-masthead__logo {
+    @if $wvu-masthead-background == 'white' {
+      background-image: url($flying-wv-w-signature-white-bg);
+    }
+    @else if $wvu-masthead-background == 'gold' {
+      background-image: url($flying-wv-w-signature-gold-bg);
+    }
+    @else {
+      background-image: url($flying-wv-w-signature);
+    }
+  }
+}
+
+@mixin wvu-masthead-signature() {
+  .wvu-masthead__logo {
+    background-repeat: no-repeat;
+    background-position: top 1.2em left;
+    background-size: 300px;
+    padding-left: 54px;
+    padding-bottom: 1em;
+    @include wvu-masthead-signature-background();
+  }
+  .wvu-masthead__logo--mini {
+    background-size: 250px;
+    background-position: top 0.5em left;
+  }
+  .wvu-masthead__title {
+    padding-top: 46px;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+
+    @include media($wvu-bp-small) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    @include media($wvu-bp-medium) {
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+  .wvu-masthead__university-name {
+    position: absolute;
+    left: -99999em;
+  }
+
+}

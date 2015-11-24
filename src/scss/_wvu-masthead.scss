@@ -13,6 +13,8 @@
 @import 'wvu-masthead-gold-pattern';
 @import 'wvu-masthead-blue';
 
+@import 'wvu-masthead-signature';
+
 
 // WVU Masthead Mixin Two Line Lockup for Long Titles
 //==================================================
@@ -29,6 +31,16 @@
         top: 7.1em;
       }
     }
+  }
+}
+
+// Logic Switch for Masthead with Signature
+//==================================================
+@mixin wvu-masthead-has-signature(){
+  @if $wvu-masthead-has-signature {
+    @include wvu-masthead-signature();
+  } @else {
+    @include wvu-masthead-no-signature();
   }
 }
 
