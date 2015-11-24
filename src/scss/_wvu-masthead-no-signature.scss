@@ -1,14 +1,12 @@
 @mixin wvu-masthead-no-signature-background(){
-  .wvu-masthead__logo {
-    @if $wvu-masthead-background == 'white' {
-      background-image: url($flying-wv-w-signature-white-bg);
-    }
-    @else if $wvu-masthead-background == 'gold' {
-      background-image: url($flying-wv-w-signature-gold-bg);
-    }
-    @else {
-      background-image: url($flying-wv-w-signature);
-    }
+  @if $wvu-masthead-background == 'white' {
+    background-image: url($flying-wv-w-signature-white-bg);
+  }
+  @else if $wvu-masthead-background == 'gold' {
+    background-image: url($flying-wv-w-signature-gold-bg);
+  }
+  @else {
+    background-image: url($flying-wv-w-signature);
   }
 }
 
