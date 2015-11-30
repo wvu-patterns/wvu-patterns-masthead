@@ -3,7 +3,8 @@
 
 $wvu-masthead-background: 'blue';
 
-// Dependencies
+
+// 3rd Party Dependencies
 // =================================================
 
 // Normalize
@@ -13,9 +14,13 @@ $wvu-masthead-background: 'blue';
 @import "./bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "./bower_components/neat/app/assets/stylesheets/neat";
 
+
+// WVU Dependency Utilities
+// =================================================
+
 // wvu-utilities-variables
-@import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-base";
 @import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-color";
+@import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-base";
 @import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-mediaquery";
 @import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-images";
 @import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-overrides";
@@ -23,10 +28,14 @@ $wvu-masthead-background: 'blue';
 // wvu-utilities-typography
 @import "./bower_components/wvu-utilities-typography/src/scss/wvu-typography";
 
+
+// WVU Dependency Patterns
+// =================================================
+
 // wvu-patterns-search
 @import "./bower_components/wvu-patterns-search/src/scss/wvu-search";
 
 
-// WVU Patterns
+// WVU Masthead Pattern
 // =================================================
 @import "./src/scss/_wvu-masthead.scss";
