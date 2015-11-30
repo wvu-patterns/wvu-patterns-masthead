@@ -1,85 +1,67 @@
 'use strict';
 
 var gulp = require('gulp'),
+    fs = require('fs'),
+    merge = require('merge'),
     sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
     prefix = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
-    del = require("del"),
-    runSequence = require('run-sequence'),
-    scsslint = require('gulp-scss-lint'),
     handlebars = require('gulp-compile-handlebars'),
-    extend = require('gulp-extend'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload;
 
 
-gulp.task('browser-sync', function() {
-  browserSync({
-    server: {
-      baseDir: "./build/",
-    },
-    open: false,
-    logConnections: true,
-    logSnippet: false
+  gulp.task('browser-sync', function() {
+    browserSync({
+      server: {
+        baseDir: "./build",
+      },
+      open: false,
+      logConnections: true,
+      logSnippet: false
+    });
   });
-});
 
-gulp.task('clean', function(cb){
-  return del([
-    'build/**'
-  ], cb);
-});
+  gulp.task('compile-scss', function(){
+    return gulp.src([
+        './test/scss/styles.scss'
+      ])
+      .pipe(sourcemaps.init())
+      .pipe(sass({
+        includePaths: ['scss'],
+        outputStyle: 'expanded'
+      }))
+      .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7", { cascade: true }))
+      .pipe(sourcemaps.write('maps', {
+        includeContent: false,
+        sourceRoot: './build/css/'
+      }))
+      .pipe(gulp.dest('./build/css/'));
+  });
 
-gulp.task('scss-lint', function() {
-  return gulp.src('./src/scss/*.scss')
-    .pipe(scsslint({
-      'config': '.scss-lint.yml'
-    }))
-    .pipe(scsslint.failReporter());
-});
+  gulp.task('compile-handlebars', function () {
 
-gulp.task('compile-scss', function(){
-  return gulp.src([
-      './test/scss/styles.scss'
-    ])
-    .pipe(rename(function (path) {
-      path.basename = path.basename.substring(1)
-    }))
-    .pipe(sass({
-      includePaths: ['scss'],
-      outputStyle: 'expanded'
-    }))
-    .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7", { cascade: true }))
-    .pipe(gulp.dest('./build/css/'));
-});
+    var wvu_search_data = JSON.parse(fs.readFileSync('./bower_components/wvu-patterns-search/data/_wvu-search.json'));
+    var wvu_masthead_data = JSON.parse(fs.readFileSync('./data/_wvu-masthead.json'));
 
-gulp.task('build-json',function(){
-  return gulp.src([
-    './src/handlebars/data/*.json',
-    './bower_components/wvu-**/src/handlebars/data/*.json'
-    ])
-  .pipe(extend('_wvu-masthead.json',true,2))
-  .pipe(gulp.dest("./build/data"));
-})
+    var templateData = merge(wvu_search_data, wvu_masthead_data);
 
-gulp.task('compile', ['build-json','scss-lint','compile-scss'], function () {
+    var options = {
+      batch : [
+        './bower_components/wvu-patterns-search/src/handlebars',
+        './src/handlebars'
+      ]
+    }
+    return gulp.src('./test/index.hbs')
+          .pipe(handlebars(templateData, options))
+          .pipe(rename('index.html'))
+          .pipe(gulp.dest('./build'));
+  });
 
-  var templateData = require('./build/data/_wvu-masthead.json');
-
-  var options = {
-    batch : [
-      './bower_components/wvu-patterns-search/src/handlebars/partials',
-      './src/handlebars/partials'
-    ]
-  }
-  return gulp.src('./test/index.hbs')
-        .pipe(handlebars(templateData, options))
-        .pipe(rename('index.html'))
-        .pipe(gulp.dest('./build'));
-});
-
-gulp.task('build',function(cb){
-  runSequence('clean','compile',cb);
-});
-
-gulp.task('test',['build','browser-sync']);
-gulp.task('ci',['scss-lint']);
+  gulp.task('default',['compile-scss','compile-handlebars','browser-sync'], function(){
+    gulp.watch(["./src/scss/*.scss","./test/scss/*.scss"],["compile-scss"]);
+    gulp.watch(["./src/handlebars/*.hbs","./test/**/*.hbs","./test/data.json"],["compile-handlebars"]);
+    gulp.watch("./build/**/*.html").on('change',reload);
+    gulp.watch("./build/css/*.css").on('change',reload);
+  });

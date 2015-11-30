@@ -33,6 +33,7 @@
     "neat" : "1.7.2"
   },
   "devDependencies": {
-    "wvu-utilities-typography": "1.0.0"
+    "wvu-utilities-typography": "1.0.0",
+    "normalize-scss": "~3.0.3"
   }
 }

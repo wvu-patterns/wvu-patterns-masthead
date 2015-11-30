@@ -1,25 +1,32 @@
+// Default Variable Overrides
+// =================================================
+
+$wvu-masthead-background: 'blue';
+
 // Dependencies
 // =================================================
 
+// Normalize
+@import "./bower_components/normalize-scss/normalize.scss";
+
 // Bourbon & Neat
-@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
-@import "../bower_components/neat/app/assets/stylesheets/neat";
+@import "./bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "./bower_components/neat/app/assets/stylesheets/neat";
 
 // wvu-utilities-variables
-@import "../bower_components/wvu-utilities-variables/src/scss/wvu-variables-base";
-@import "../bower_components/wvu-utilities-variables/src/scss/wvu-variables-color";
-@import "../bower_components/wvu-utilities-variables/src/scss/wvu-variables-images";
-@import "../bower_components/wvu-utilities-variables/src/scss/wvu-variables-mediaquery";
-@import "../bower_components/wvu-utilities-variables/src/scss/wvu-variables-overrides";
+@import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-base";
+@import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-color";
+@import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-mediaquery";
+@import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-images";
+@import "./bower_components/wvu-utilities-variables/src/scss/wvu-variables-overrides";
 
 // wvu-utilities-typography
-@import "../bower_components/wvu-utilities-typography/src/scss/wvu-typography";
+@import "./bower_components/wvu-utilities-typography/src/scss/wvu-typography";
 
 // wvu-patterns-search
-@import "../bower_components/wvu-patterns-search/src/scss/wvu-search";
+@import "./bower_components/wvu-patterns-search/src/scss/wvu-search";
 
 
-// Pattern
+// WVU Patterns
 // =================================================
-
-@import "../src/scss/_wvu-masthead.scss";
+@import "./src/scss/_wvu-masthead.scss";

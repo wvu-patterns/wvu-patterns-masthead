@@ -7,9 +7,9 @@
       "classes": "",
       "search": true,
       "link": "http://www.wvu.edu",
-      "department": false,
-      "college_name": "",
-      "college_url": ""
+      "department": true,
+      "college_name": "College of Art",
+      "college_url": "http://ccarts.wvu.edu"
     }
   }
 }
