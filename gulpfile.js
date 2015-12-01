@@ -61,7 +61,7 @@ var gulp = require('gulp'),
 
   gulp.task('default',['compile-scss','compile-handlebars','browser-sync'], function(){
     gulp.watch(["./src/scss/*.scss","./test/scss/*.scss"],["compile-scss"]);
-    gulp.watch(["./src/handlebars/*.hbs","./test/**/*.hbs","./test/data.json"],["compile-handlebars"]);
+    gulp.watch(["./src/handlebars/*.hbs","./test/**/*.hbs","./data/_wvu-masthead.json"],["compile-handlebars"]);
     gulp.watch("./build/**/*.html").on('change',reload);
     gulp.watch("./build/css/*.css").on('change',reload);
   });
