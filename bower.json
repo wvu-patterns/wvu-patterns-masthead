@@ -14,9 +14,14 @@
   "description": "WVU Pattern Library -- Masthead Module",
   "license": "MIT",
   "main": [
-    "src/cleanslate/_wvu-masthead.html",
-    "src/handlebars/data/_wvu-masthead.json",
-    "src/handlebars/partials/_wvu-masthead.hbs",
+    "src/scss/_wvu-masthead-blue-pattern.scss",
+    "src/scss/_wvu-masthead-blue.scss",
+    "src/scss/_wvu-masthead-gold-pattern.scss",
+    "src/scss/_wvu-masthead-gold.scss",
+    "src/scss/_wvu-masthead-no-signature.scss",
+    "src/scss/_wvu-masthead-signature.scss",
+    "src/scss/_wvu-masthead-variables.scss",
+    "src/scss/_wvu-masthead-white.scss",
     "src/scss/_wvu-masthead.scss"
   ],
   "ignore": [
