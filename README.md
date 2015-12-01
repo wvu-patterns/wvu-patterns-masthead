@@ -54,7 +54,8 @@ Requires:
 #### Installation
 
 ```bash
-$ cd {install-dir}/wvu-utilities-buttons
+$ git clone https://github.com/wvu-patterns/wvu-patterns-masthead.git
+$ cd wvu-patterns-masthead
 $ gem install bundler
 $ bundle install
 $ npm install
