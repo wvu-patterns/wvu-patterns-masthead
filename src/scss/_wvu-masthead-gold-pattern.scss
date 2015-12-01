@@ -11,6 +11,7 @@
 
   .wvu-masthead__logo {
     color: $wvu-blue;
+
     &:hover {
       color: $wvu-base-link-color;
     }
@@ -18,18 +19,22 @@
 
   .wvu-masthead__link {
     color: $wvu-blue;
+
     &:hover {
       color: $wvu-link-base-color;
     }
   }
 
   .wvu-masthead__college-link {
+
     &:hover {
       color: $wvu-white;
     }
+
     &:visited {
-      color: $wvu-white
+      color: $wvu-white;
     }
+
     a {
       background: $wvu-blue;
       color: $wvu-white;

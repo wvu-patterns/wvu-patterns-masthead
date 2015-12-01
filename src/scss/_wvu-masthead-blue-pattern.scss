@@ -4,8 +4,8 @@
 @mixin wvu-masthead-blue-pattern() {
   .wvu-masthead {
     background: url($wvu-pattern-blue-bg) no-repeat;
-    background-size: cover;
     background-color: $wvu-blue;
+    background-size: cover;
     -webkit-font-smoothing: antialiased;
   }
 }

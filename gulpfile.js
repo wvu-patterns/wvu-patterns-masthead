@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     fs = require('fs'),
     merge = require('merge'),
     sass = require('gulp-sass'),
+    scsslint = require('gulp-scss-lint'),
     sourcemaps = require('gulp-sourcemaps'),
     prefix = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
@@ -12,56 +13,66 @@ var gulp = require('gulp'),
     reload = browserSync.reload;
 
 
-  gulp.task('browser-sync', function() {
-    browserSync({
-      server: {
-        baseDir: "./build",
-      },
-      open: false,
-      logConnections: true,
-      logSnippet: false
-    });
+gulp.task('browser-sync', function() {
+  browserSync({
+    server: {
+      baseDir: './build',
+    },
+    open: false,
+    logConnections: true,
+    logSnippet: false
   });
+});
 
-  gulp.task('compile-scss', function(){
-    return gulp.src([
-        './test/scss/styles.scss'
-      ])
-      .pipe(sourcemaps.init())
-      .pipe(sass({
-        includePaths: ['scss'],
-        outputStyle: 'expanded'
-      }))
-      .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7", { cascade: true }))
-      .pipe(sourcemaps.write('maps', {
-        includeContent: false,
-        sourceRoot: './build/css/'
-      }))
-      .pipe(gulp.dest('./build/css/'));
-  });
+gulp.task('compile-scss', function(){
+  return gulp.src([
+      './test/scss/styles.scss'
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      includePaths: ['scss'],
+      outputStyle: 'expanded'
+    }))
+    .pipe(prefix('last 1 version', '> 1%', 'ie 8', 'ie 7', { cascade: true }))
+    .pipe(sourcemaps.write('maps', {
+      includeContent: false,
+      sourceRoot: './build/css/'
+    }))
+    .pipe(gulp.dest('./build/css/'));
+});
 
-  gulp.task('compile-handlebars', function () {
+gulp.task('compile-handlebars', function () {
 
-    var wvu_search_data = JSON.parse(fs.readFileSync('./bower_components/wvu-patterns-search/data/_wvu-search.json'));
-    var wvu_masthead_data = JSON.parse(fs.readFileSync('./data/_wvu-masthead.json'));
+  var wvu_search_data = JSON.parse(fs.readFileSync('./bower_components/wvu-patterns-search/data/_wvu-search.json'));
+  var wvu_masthead_data = JSON.parse(fs.readFileSync('./data/_wvu-masthead.json'));
 
-    var templateData = merge(wvu_search_data, wvu_masthead_data);
+  var templateData = merge(wvu_search_data, wvu_masthead_data);
 
-    var options = {
-      batch : [
-        './bower_components/wvu-patterns-search/src/handlebars',
-        './src/handlebars'
-      ]
-    }
-    return gulp.src('./test/index.hbs')
-          .pipe(handlebars(templateData, options))
-          .pipe(rename('index.html'))
-          .pipe(gulp.dest('./build'));
-  });
+  var options = {
+    batch : [
+      './bower_components/wvu-patterns-search/src/handlebars',
+      './src/handlebars'
+    ]
+  }
+  return gulp.src('./test/index.hbs')
+        .pipe(handlebars(templateData, options))
+        .pipe(rename('index.html'))
+        .pipe(gulp.dest('./build'));
+});
 
-  gulp.task('default',['compile-scss','compile-handlebars','browser-sync'], function(){
-    gulp.watch(["./src/scss/*.scss","./test/scss/*.scss"],["compile-scss"]);
-    gulp.watch(["./src/handlebars/*.hbs","./test/**/*.hbs","./data/_wvu-masthead.json"],["compile-handlebars"]);
-    gulp.watch("./build/**/*.html").on('change',reload);
-    gulp.watch("./build/css/*.css").on('change',reload);
-  });
+gulp.task('scss-lint', function(){
+  return gulp.src('./src/scss/*.scss')
+    .pipe(scsslint({
+      'config': '.scss-lint.yml'
+    }))
+    .pipe(scsslint.failReporter());
+});
+
+gulp.task('ci',['scss-lint','compile-scss','compile-handlebars']);
+
+gulp.task('default',['scss-lint','compile-scss','compile-handlebars','browser-sync'], function(){
+  gulp.watch(['./src/scss/*.scss','./test/scss/*.scss'],['scss-lint','compile-scss']);
+  gulp.watch(['./src/handlebars/*.hbs','./test/**/*.hbs','./data/_wvu-masthead.json'],['compile-handlebars']);
+  gulp.watch('./build/**/*.html').on('change',reload);
+  gulp.watch('./build/css/*.css').on('change',reload);
+});

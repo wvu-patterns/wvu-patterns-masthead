@@ -1,6 +1,6 @@
 {
   "wvu_config": {
-    "wvu_tech": false,
+    "wvu_tech": true,
     "wvu_masthead": {
       "title": "",
       "mini": false,

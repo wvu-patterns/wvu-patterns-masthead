@@ -12,9 +12,11 @@
     background: url($flying-wv-blue) no-repeat top 1.2em left;
     background-size: 1.8em;
     color: $wvu-blue;
+
     &:hover {
       color: $pms-300-c;
     }
+
     &:visited {
       color: $wvu-blue;
     }
@@ -23,9 +25,9 @@
   .wvu-masthead__link {
     color: $wvu-blue;
 
-     &:hover {
-       color: $wvu-base-link-color;
-     }
+    &:hover {
+      color: $wvu-base-link-color;
+    }
   }
 
   .wvu-masthead__college-link {
@@ -35,6 +37,7 @@
     &:hover {
       color: $wvu-white;
     }
+
     &:visited {
       color: $wvu-white;
     }
