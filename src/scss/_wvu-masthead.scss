@@ -3,6 +3,15 @@
 
 @import 'wvu-masthead-variables';
 
+// WVU Tech Variable overrides
+//==================================================
+
+@if $wvu-tech {
+  $flying-wv-w-signature: $flying-wv-w-signature--tech;
+  $flying-wv-w-signature-gold-bg: $flying-wv-w-signature-gold--tech;
+  $flying-wv-w-signature-white-bg: $flying-wv-w-signature-white--tech;
+}
+
 
 // Import masthead partials mixins
 //=================================================
@@ -12,7 +21,6 @@
 @import 'wvu-masthead-blue-pattern';
 @import 'wvu-masthead-gold-pattern';
 @import 'wvu-masthead-blue';
-
 @import 'wvu-masthead-signature';
 
 
@@ -194,11 +202,23 @@
 
 .wvu-masthead__logo--mini {
   background-size: 250px;
-  background-position: top 0.6em left;
   padding-bottom: 1.6em;
+
+  @if $wvu-tech {
+    background-position: top 0.4em left;
+  } @else {
+    background-position: top 0.6em left;
+  }
+
   @include media($wvu-bp-medium) {
-    background-position: top 0.5em left;
     padding-bottom: 1em;
     font-size: 2em;
+
+    @if $wvu-tech {
+      background-position: top 0.35em left;
+    } @else {
+      background-position: top 0.5em left;
+    }
+
   }
 }

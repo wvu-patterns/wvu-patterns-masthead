@@ -22,6 +22,7 @@
 
   .wvu-masthead__link {
     color: $wvu-blue;
+
      &:hover {
        color: $wvu-base-link-color;
      }
@@ -30,12 +31,14 @@
   .wvu-masthead__college-link {
     background: $wvu-blue;
     color: $wvu-white;
+
     &:hover {
       color: $wvu-white;
     }
     &:visited {
       color: $wvu-white;
     }
+
     a {
       background: $wvu-blue;
       color: $wvu-white;

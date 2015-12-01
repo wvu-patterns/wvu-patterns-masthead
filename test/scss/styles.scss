@@ -1,6 +1,7 @@
 // Default Variable Overrides
 // =================================================
 
+$wvu-tech: false;
 $wvu-masthead-background: 'blue';
 
 
@@ -30,6 +31,7 @@ $wvu-masthead-background: 'blue';
 
 // wvu-utilities-forms
 @import "./bower_components/wvu-utilities-forms/src/scss/wvu-forms";
+
 
 // WVU Dependency Patterns
 // =================================================
