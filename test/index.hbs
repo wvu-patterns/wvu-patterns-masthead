@@ -4,10 +4,20 @@
     <title>WVU Pattern Library - Masthead Module Test</title>
     <meta content='width=device-width, initial-scale=1' name='viewport'>
 
+    <script type="text/javascript">
+      function resizeIframe(obj){
+         obj.style.height = 0;
+         obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+      }
+    </script>
+
     <link href="css/styles.css" rel="stylesheet" />
 
   </head>
   <body>
-    {{> _wvu-masthead}}
+    {{#tests}}
+      <h3>{{test-name}}</h3>
+      <iframe src="{{test-name}}.html"></iframe>
+    {{/tests}}
   </body>
 </html>

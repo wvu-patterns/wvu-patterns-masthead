@@ -1,0 +1,155 @@
+{
+  "styles": [
+    "blue",
+    "gold",
+    "white",
+    "blue-pattern",
+    "gold-pattern"
+  ],
+  "tests": [
+    {
+      "name": "masthead",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": false,
+          "wvu_masthead": {
+            "title": "",
+            "mini": false,
+            "classes": "",
+            "search": false,
+            "link": "http://www.wvu.edu",
+            "department": false,
+            "college_name": "",
+            "college_url": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "masthead-with-search",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": false,
+          "wvu_masthead": {
+            "title": "",
+            "mini": false,
+            "classes": "",
+            "search": true,
+            "link": "http://www.wvu.edu",
+            "department": false,
+            "college_name": "",
+            "college_url": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "masthead-with-search-and-department",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": false,
+          "wvu_masthead": {
+            "title": "",
+            "mini": false,
+            "classes": "",
+            "search": true,
+            "link": "http://www.wvu.edu",
+            "department": true,
+            "college_name": "College of Art",
+            "college_url": "http://ccarts.wvu.edu"
+          }
+        }
+      }
+    },
+    {
+      "name": "masthead-mini",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": false,
+          "wvu_masthead": {
+            "title": "",
+            "mini": true,
+            "classes": "",
+            "search": false,
+            "link": "http://www.wvu.edu",
+            "department": false,
+            "college_name": "",
+            "college_url": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "masthead-tech",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": true,
+          "wvu_masthead": {
+            "title": "",
+            "mini": false,
+            "classes": "",
+            "search": false,
+            "link": "http://www.wvu.edu",
+            "department": false,
+            "college_name": "",
+            "college_url": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "masthead-tech-with-search",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": true,
+          "wvu_masthead": {
+            "title": "",
+            "mini": false,
+            "classes": "",
+            "search": true,
+            "link": "http://www.wvu.edu",
+            "department": false,
+            "college_name": "",
+            "college_url": ""
+          }
+        }
+      }
+    },
+    {
+      "name": "masthead-tech-with-search-and-department",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": true,
+          "wvu_masthead": {
+            "title": "",
+            "mini": false,
+            "classes": "",
+            "search": true,
+            "link": "http://www.wvutech.edu",
+            "department": true,
+            "college_name": "College of Engineering",
+            "college_url": "http://engineering.wvutech.edu"
+          }
+        }
+      }
+    },
+    {
+      "name": "masthead-tech-mini",
+      "settings": {
+        "wvu_config": {
+          "wvu_tech": true,
+          "wvu_masthead": {
+            "title": "",
+            "mini": true,
+            "classes": "",
+            "search": false,
+            "link": "http://www.wvutech.edu",
+            "department": false,
+            "college_name": "College of Engineering",
+            "college_url": "http://engineering.wvutech.edu"
+          }
+        }
+      }
+    }
+  ]
+}

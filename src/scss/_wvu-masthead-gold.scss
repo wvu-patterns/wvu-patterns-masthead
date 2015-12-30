@@ -47,4 +47,14 @@
       color: $wvu-white;
     }
   }
+
+  .wvu-search__submit {
+    background-color: transparent;
+    border-color: $wvu-white;
+
+    &:hover {
+      background-color: $wvu-blue;
+      border-color: $wvu-blue;
+    }
+  }
 }

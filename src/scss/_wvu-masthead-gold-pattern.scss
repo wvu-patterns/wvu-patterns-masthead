@@ -21,7 +21,7 @@
     color: $wvu-blue;
 
     &:hover {
-      color: $wvu-link-base-color;
+      color: $wvu-base-link-color;
     }
   }
 
@@ -38,6 +38,16 @@
     a {
       background: $wvu-blue;
       color: $wvu-white;
+    }
+  }
+
+  .wvu-search__submit {
+    background-color: $wvu-blue;
+    border-color: $wvu-blue;
+
+    &:hover {
+      background-color: $wvu-blue;
+      border-color: $wvu-blue;
     }
   }
 }

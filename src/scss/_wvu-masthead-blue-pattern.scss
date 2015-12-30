@@ -6,6 +6,23 @@
     background: url($wvu-pattern-blue-bg) no-repeat;
     background-color: $wvu-blue;
     background-size: cover;
+    color: $wvu-white;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .wvu-masthead__college-link {
+
+    &:hover {
+      color: $wvu-blue;
+    }
+
+    &:visited {
+      color: $wvu-blue;
+    }
+
+    a {
+      background: $wvu-gold;
+      color: $wvu-blue;
+    }
   }
 }

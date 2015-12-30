@@ -10,7 +10,13 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     handlebars = require('gulp-compile-handlebars'),
     browserSync = require('browser-sync'),
-    reload = browserSync.reload;
+    reload = browserSync.reload,
+    gutil = require('gulp-util'),
+    file = require('gulp-file'),
+    combinatorics = require('js-combinatorics'),
+    _ = require('underscore-node');
+
+
 
 
 gulp.task('browser-sync', function() {
@@ -26,7 +32,8 @@ gulp.task('browser-sync', function() {
 
 gulp.task('compile-scss', function(){
   return gulp.src([
-      './test/scss/styles.scss'
+      './test/scss/**/*.scss',
+      './build/scss/**/*.scss'
     ])
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -41,22 +48,103 @@ gulp.task('compile-scss', function(){
     .pipe(gulp.dest('./build/css/'));
 });
 
-gulp.task('compile-handlebars', function () {
-
-  var wvu_search_data = JSON.parse(fs.readFileSync('./bower_components/wvu-patterns-search/data/_wvu-search.json'));
-  var wvu_masthead_data = JSON.parse(fs.readFileSync('./data/_wvu-masthead.json'));
-
-  var templateData = merge(wvu_search_data, wvu_masthead_data);
-
+gulp.task('build-scss-templates', ['build-json'], function (cb) {
   var options = {
     batch : [
       './bower_components/wvu-patterns-search/src/handlebars',
       './src/handlebars'
     ]
   }
-  return gulp.src('./test/index.hbs')
+
+  var test_data = JSON.parse(fs.readFileSync('./build/data/tests.json'));
+
+  test_data['tests'].forEach(function(test){
+
+    console.log(test);
+
+    gulp.src(['./test/scss/pattern.scss.hbs'])
+      .pipe(handlebars(test, options))
+      .pipe(rename({
+        basename: test['test-name'],
+        extname: '.scss'
+      }))
+      .pipe(gulp.dest('./build/scss'));
+  });
+  return cb();
+})
+
+gulp.task('build-iframe-templates', ['build-json'], function (cb) {
+  var options = {
+    batch : [
+      './bower_components/wvu-patterns-search/src/handlebars',
+      './src/handlebars'
+    ]
+  }
+
+  var test_data = JSON.parse(fs.readFileSync('./build/data/tests.json'));
+
+  test_data['tests'].forEach(function(test){
+
+    gulp.src(['./test/partials/_iframe-template.hbs'])
+      .pipe(handlebars(test, options))
+      .pipe(rename({
+        basename: test['test-name'],
+        extname: '.html'
+      }))
+      .pipe(gulp.dest('./build'));
+  });
+  return cb();
+})
+
+gulp.task('build-json', function () {
+  var test_data = JSON.parse(fs.readFileSync('./test/data/test.json'));
+
+  var test_items = [];
+  test_data['tests'].forEach(function(test){
+
+    test_data['styles'].forEach(function(style){
+      var test_object = {
+        'test-name': style+'-'+test.name,
+        color: style,
+        name: test.name,
+        settings: test['settings']
+      }
+      test_items.push(test_object);
+    });
+  });
+
+  var test_object = {
+    tests: test_items
+  }
+
+  return file('tests.json', JSON.stringify(test_object, null, 2), { src: true }).pipe(gulp.dest('./build/data'));
+});
+
+gulp.task('compile-handlebars', ['build-iframe-templates'], function () {
+  var options = {
+    batch : [
+      './bower_components/wvu-patterns-search/src/handlebars',
+      './src/handlebars'
+    ]
+  }
+
+  var test_data = JSON.parse(fs.readFileSync('./build/data/tests.json'));
+
+  var wvu_search_data = JSON.parse(fs.readFileSync('./bower_components/wvu-patterns-search/data/_wvu-search.json'));
+  var wvu_masthead_data = JSON.parse(fs.readFileSync('./data/_wvu-masthead.json'));
+
+  var templateData = merge(wvu_search_data, test_data);
+
+  // Build dynamic iframe pages
+  templateData['tests'].forEach(function(test){
+
+  });
+
+  return gulp.src(['./test/**/*.hbs', '!./test/**/_*.hbs'])
         .pipe(handlebars(templateData, options))
-        .pipe(rename('index.html'))
+        .pipe(rename({
+          extname: '.html'
+        }))
         .pipe(gulp.dest('./build'));
 });
 
