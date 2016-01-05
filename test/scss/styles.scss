@@ -1,9 +1,13 @@
 body {
-  color: black;
+  background-color: black;
+  color: white;
+  padding: 0;
+  margin: 0;
 }
 
 iframe {
   border: 0;
   float: left;
   width: 100%;
+  padding-bottom: 20px;
 }
