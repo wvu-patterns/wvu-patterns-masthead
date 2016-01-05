@@ -73,7 +73,7 @@ gulp.task('build-scss-templates', ['build-json'], function (cb) {
   return cb();
 })
 
-gulp.task('build-iframe-templates', ['build-json'], function (cb) {
+gulp.task('build-iframe-templates', ['build-scss-templates'], function (cb) {
   var options = {
     batch : [
       './bower_components/wvu-patterns-search/src/handlebars',
