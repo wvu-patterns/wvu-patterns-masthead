@@ -17,7 +17,7 @@
   <body>
     {{#tests}}
       <h3>{{test-name}}</h3>
-      <iframe src="{{test-name}}.html"></iframe>
+      <iframe src="{{test-name}}.html" onload="javascript:resizeIframe(this);"></iframe>
     {{/tests}}
   </body>
 </html>
