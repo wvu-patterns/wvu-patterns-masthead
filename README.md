@@ -64,5 +64,5 @@ $ bower install
 
 #### Pattern Testing
 
-* `gulp test` will create a build directory so you can view pattern
-* `gulp ci` will run lint test to make sure .scss file is valid
+* `gulp` will create a build directory so you can view pattern at `localhost:3000`
+* `gulp ci` will run lint test to make sure the .scss files are parseable and valid
