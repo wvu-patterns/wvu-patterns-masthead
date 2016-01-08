@@ -9,13 +9,13 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     rename = require('gulp-rename'),
     handlebars = require('gulp-compile-handlebars'),
+    todo = require('gulp-todo'),
     browserSync = require('browser-sync'),
     reload = browserSync.reload,
     gutil = require('gulp-util'),
     file = require('gulp-file'),
     combinatorics = require('js-combinatorics'),
     _ = require('underscore-node');
-
 
 
 
@@ -30,7 +30,23 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('compile-scss', function(){
+
+gulp.task('todo', function(){
+  return gulp.src([
+    './**/*.scss',
+    '!./bower_components/**/*.scss',
+    './**/*.html',
+    '!./bower_components/**/*.html',
+    './**/*.hbs',
+    '!./bower_components/**/*.hbs',
+    './**/*.haml',
+    '!./bower_components/**/*.haml'
+  ])
+  .pipe(todo())
+  .pipe(gulp.dest('./'));
+});
+
+gulp.task('compile-scss', ['scss-lint'], function(){
   return gulp.src([
       './test/scss/**/*.scss',
       './build/scss/**/*.scss'
@@ -59,9 +75,6 @@ gulp.task('build-scss-templates', ['build-json'], function (cb) {
   var test_data = JSON.parse(fs.readFileSync('./build/data/tests.json'));
 
   test_data['tests'].forEach(function(test){
-
-    console.log(test);
-
     gulp.src(['./test/scss/pattern.scss.hbs'])
       .pipe(handlebars(test, options))
       .pipe(rename({
@@ -120,7 +133,7 @@ gulp.task('build-json', function () {
   return file('tests.json', JSON.stringify(test_object, null, 2), { src: true }).pipe(gulp.dest('./build/data'));
 });
 
-gulp.task('compile-handlebars', ['build-iframe-templates'], function () {
+gulp.task('build', ['todo','compile-scss','build-iframe-templates'], function () {
   var options = {
     batch : [
       './bower_components/wvu-patterns-search/src/handlebars',
@@ -156,11 +169,11 @@ gulp.task('scss-lint', function(){
     .pipe(scsslint.failReporter());
 });
 
-gulp.task('ci',['scss-lint','compile-scss','compile-handlebars']);
+gulp.task('ci',['compile-scss','compile-handlebars']);
 
-gulp.task('default',['scss-lint','compile-scss','compile-handlebars','browser-sync'], function(){
-  gulp.watch(['./src/scss/*.scss','./test/scss/*.scss'],['scss-lint','compile-scss']);
-  gulp.watch(['./src/handlebars/*.hbs','./test/**/*.hbs','./data/_wvu-masthead.json'],['compile-handlebars']);
+gulp.task('default',['build','browser-sync'], function(){
+  gulp.watch(['./src/scss/*.scss','./test/scss/*.scss'],['build']);
+  gulp.watch(['./src/handlebars/*.hbs','./test/**/*.hbs','./data/_wvu-masthead.json'],['build']);
   gulp.watch('./build/**/*.html').on('change',reload);
   gulp.watch('./build/css/*.css').on('change',reload);
 });
