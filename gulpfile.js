@@ -169,7 +169,7 @@ gulp.task('scss-lint', function(){
     .pipe(scsslint.failReporter());
 });
 
-gulp.task('ci',['compile-scss','compile-handlebars']);
+gulp.task('ci',['build']);
 
 gulp.task('default',['build','browser-sync'], function(){
   gulp.watch(['./src/scss/*.scss','./test/scss/*.scss'],['build']);
