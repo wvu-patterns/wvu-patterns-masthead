@@ -24,6 +24,9 @@ gulp.task('browser-sync', function() {
     server: {
       baseDir: './build',
     },
+    snippetOptions: {
+      blacklist: ["/iframes/**/*.html"]
+    },
     open: false,
     logConnections: true,
     logSnippet: false
@@ -104,7 +107,7 @@ gulp.task('build-iframe-templates', ['build-scss-templates'], function (cb) {
         basename: test['test-name'],
         extname: '.html'
       }))
-      .pipe(gulp.dest('./build'));
+      .pipe(gulp.dest('./build/iframes'));
   });
   return cb();
 })
