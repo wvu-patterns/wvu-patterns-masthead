@@ -11,13 +11,13 @@
       }
     </script>
 
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../css/styles.css" rel="stylesheet" />
 
   </head>
   <body>
     {{#tests}}
       <h3>{{test-name}}</h3>
-      <iframe src="{{test-name}}.html" onload="javascript:resizeIframe(this);"></iframe>
+      <iframe src="iframes/{{test-name}}.html" onload="javascript:resizeIframe(this);"></iframe>
     {{/tests}}
   </body>
 </html>
