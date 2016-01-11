@@ -4,42 +4,14 @@
 $wvu-tech: {{#settings.wvu_config.wvu_tech}}true{{/settings.wvu_config.wvu_tech}}{{^settings.wvu_config.wvu_tech}}false{{/settings.wvu_config.wvu_tech}};
 $wvu-masthead-background: '{{color}}';
 
+@import './src/scss/manifest';
 
-// 3rd Party Dependencies
+// Test Styles
 // =================================================
 
-// Normalize
-@import './bower_components/normalize-scss/normalize.scss';
-
-// Bourbon & Neat
-@import './bower_components/bourbon/app/assets/stylesheets/bourbon';
-@import './bower_components/neat/app/assets/stylesheets/neat';
-
-
-// WVU Dependency Utilities
-// =================================================
-
-// wvu-utilities-variables
-@import './bower_components/wvu-utilities-variables/src/scss/wvu-variables-color';
-@import './bower_components/wvu-utilities-variables/src/scss/wvu-variables-base';
-@import './bower_components/wvu-utilities-variables/src/scss/wvu-variables-mediaquery';
-@import './bower_components/wvu-utilities-variables/src/scss/wvu-variables-images';
-@import './bower_components/wvu-utilities-variables/src/scss/wvu-variables-overrides';
-
-// wvu-utilities-typography
-@import './bower_components/wvu-utilities-typography/src/scss/wvu-typography';
-
-// wvu-utilities-forms
-@import './bower_components/wvu-utilities-forms/src/scss/wvu-forms';
-
-
-// WVU Dependency Patterns
-// =================================================
-
-// wvu-patterns-search
-@import './bower_components/wvu-patterns-search/src/scss/wvu-search';
-
-
-// WVU Masthead Pattern
-// =================================================
-@import './src/scss/_wvu-masthead.scss';
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+}
