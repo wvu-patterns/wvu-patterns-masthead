@@ -176,4 +176,5 @@ gulp.task('default',['build','browser-sync'], function(){
   gulp.watch(['./src/handlebars/*.hbs','./test/**/*.hbs','./data/_wvu-masthead.json'],['build']);
   gulp.watch('./build/**/*.html').on('change',reload);
   gulp.watch('./build/css/*.css').on('change',reload);
+  gulp.watch(['./src/haml/**/*.haml','./src/cleanslate/**/*.html'], ['todo']);
 });
