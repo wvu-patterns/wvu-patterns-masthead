@@ -87,7 +87,7 @@ gulp.task('build-scss-templates', ['build-json'], function (cb) {
       .pipe(gulp.dest('./build/scss'));
   });
   return cb();
-})
+});
 
 gulp.task('build-iframe-templates', ['build-scss-templates'], function (cb) {
   var options = {
@@ -110,7 +110,7 @@ gulp.task('build-iframe-templates', ['build-scss-templates'], function (cb) {
       .pipe(gulp.dest('./build/iframes'));
   });
   return cb();
-})
+});
 
 gulp.task('build-json', function () {
   var test_data = JSON.parse(fs.readFileSync('./test/data/test.json'));
@@ -150,11 +150,6 @@ gulp.task('build', ['todo','compile-scss','build-iframe-templates'], function ()
   var wvu_masthead_data = JSON.parse(fs.readFileSync('./data/_wvu-masthead.json'));
 
   var templateData = merge(wvu_search_data, test_data);
-
-  // Build dynamic iframe pages
-  templateData['tests'].forEach(function(test){
-
-  });
 
   return gulp.src(['./test/**/*.hbs', '!./test/**/_*.hbs'])
         .pipe(handlebars(templateData, options))
